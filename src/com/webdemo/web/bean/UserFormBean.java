@@ -100,7 +100,7 @@ public class UserFormBean implements Serializable {
         // 邮箱验证
         if (email.isEmpty()) {
             errorMap.put("email", "请输入邮箱");
-        } else if (!email.matches("\\b^['_a-z0-9-\\+]+(\\.['_a-z0-9-\\+]+)*@[a-z0-9-]+(\\.[a-z0-9-]+)*\\.([a-z]{2}|aero|arpa|asia|biz|com|coop|edu|gov|info|int|jobs|mil|mobi|museum|name|nato|net|org|pro|tel|travel|xxx)$\\b")) {
+        } else if (!email.matches("\\b^['_a-z0-9-\\+]+(\\.['_a-z0-9-\\+]+)*@[a-z0-9-]+(\\.[a-z0-9-]+)*\\.([a-z]{2,6})$\\b")) {
             errorMap.put("email", "请输入正确的邮箱");
         }
         // 验证输入日期
