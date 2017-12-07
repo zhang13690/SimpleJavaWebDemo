@@ -21,7 +21,7 @@ public class UserDaoDBImpl implements UserDao {
             stmt.setString(1, name);
             rs = stmt.executeQuery();
             User user = null;
-            while (rs.next()) {
+            if (rs.next()) { // 只有一条记录，使用if即可，不用while
                 user = new User();
                 user.setName(rs.getString("name"));
                 user.setEmail(rs.getString("email"));
@@ -48,7 +48,7 @@ public class UserDaoDBImpl implements UserDao {
             stmt.setString(2, pwd);
             rs = stmt.executeQuery();
             User user = null;
-            while (rs.next()) {
+            if (rs.next()) {
                 user = new User();
                 user.setName(rs.getString("name"));
                 user.setEmail(rs.getString("email"));
