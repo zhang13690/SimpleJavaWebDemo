@@ -1,15 +1,17 @@
 package com.webdemo.service.impl;
 
 import com.webdemo.dao.UserDao;
+import com.webdemo.dao.impl.UserDaoDBImpl;
 import com.webdemo.dao.impl.UserDaoXMLImpl;
 import com.webdemo.domain.User;
 import com.webdemo.exception.UserAlreadyExistsException;
 import com.webdemo.service.UserService;
+import com.webdemo.util.BeanFactory;
 
 public class UserServiceImpl implements UserService {
 
     // 维护UserDao成员变量
-    UserDao userDao = new UserDaoXMLImpl();
+    UserDao userDao = BeanFactory.getUserDao();
 
     @Override
     public void register(User user) throws UserAlreadyExistsException {
